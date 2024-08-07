@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HMSSDK
 
 struct ContentView: View {
     var body: some View {

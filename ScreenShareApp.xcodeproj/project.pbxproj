@@ -11,6 +11,7 @@
 		266CF36B2C63CE3D00437C63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266CF36A2C63CE3D00437C63 /* ContentView.swift */; };
 		266CF36D2C63CE3E00437C63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266CF36C2C63CE3E00437C63 /* Assets.xcassets */; };
 		266CF3702C63CE3E00437C63 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266CF36F2C63CE3E00437C63 /* Preview Assets.xcassets */; };
+		266CF3782C63CF8400437C63 /* HMSSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 266CF3772C63CF8400437C63 /* HMSSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				266CF3782C63CF8400437C63 /* HMSSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = ScreenShareApp;
+			packageProductDependencies = (
+				266CF3772C63CF8400437C63 /* HMSSDK */,
+			);
 			productName = ScreenShareApp;
 			productReference = 266CF3652C63CE3D00437C63 /* ScreenShareApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 266CF35C2C63CE3D00437C63;
+			packageReferences = (
+				266CF3762C63CF8400437C63 /* XCRemoteSwiftPackageReference "100ms-ios-sdk" */,
+			);
 			productRefGroup = 266CF3662C63CE3D00437C63 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -344,6 +352,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		266CF3762C63CF8400437C63 /* XCRemoteSwiftPackageReference "100ms-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/100mslive/100ms-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		266CF3772C63CF8400437C63 /* HMSSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 266CF3762C63CF8400437C63 /* XCRemoteSwiftPackageReference "100ms-ios-sdk" */;
+			productName = HMSSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 266CF35D2C63CE3D00437C63 /* Project object */;
 }
