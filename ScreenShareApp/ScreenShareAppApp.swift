@@ -14,7 +14,7 @@ struct ScreenShareAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(authToken: "YOUR_AUTH_TOKEN", broadcastExtensionBundleID: "YOUR_BROADCAST_EXTENSION_BUNDLE_ID")
         }
     }
 }

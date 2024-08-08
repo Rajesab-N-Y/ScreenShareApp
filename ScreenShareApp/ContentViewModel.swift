@@ -18,6 +18,21 @@ class ContentViewModel: ObservableObject {
     
     private var hmsClient: HMSClient?
     
+    // Configuration
+    private let authToken: String
+    private let broadcastExtensionBundleID: String
+    
+    init(authToken: String, broadcastExtensionBundleID: String) {
+        self.authToken = authToken
+        self.broadcastExtensionBundleID = broadcastExtensionBundleID
+    }
+    
+    /// Handles the incoming push notification
+    /// - Parameters:
+    ///   - roomCode: The room code received in the notification
+    ///   - title: The title of the notification
+    ///   - subtitle: The subtitle of the notification
+    ///   - body: The body of the notification
     func handlePushNotification(roomCode: String, title: String, subtitle: String, body: String) {
         self.roomCode = roomCode
         self.alertTitle = title
@@ -25,26 +40,29 @@ class ContentViewModel: ObservableObject {
         self.showAlert = true
     }
     
+    /// Joins the room with the current room code
     func joinRoom() {
-        hmsClient = HMSClient(authToken: "YOUR_AUTH_TOKEN")
+        hmsClient = HMSClient(authToken: authToken, broadcastExtensionBundleID: broadcastExtensionBundleID)
         hmsClient?.joinRoom(roomCode: roomCode, userName: "iOS User", delegate: self)
     }
     
+    /// Starts screen sharing
     func startScreenSharing() {
-        hmsClient?.startScreenSharing { result in
+        hmsClient?.startScreenSharing { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success:
-                    self.isScreenSharing = true
+                    self?.isScreenSharing = true
                 case .failure(let error):
                     print("Error starting screen sharing: \(error)")
-                    // You might want to show an alert to the user here
+                    // TODO: Show an alert to the user
                 }
             }
         }
     }
 }
 
+// MARK: - HMSUpdateListener
 extension ContentViewModel: HMSUpdateListener {
     func on(room: HMSRoom, update: HMSRoomUpdate) {
         // handle updates

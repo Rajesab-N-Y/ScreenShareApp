@@ -9,7 +9,12 @@ import SwiftUI
 import HMSSDK
 
 struct ContentView: View {
-    @StateObject private var viewModel = ContentViewModel()
+    @StateObject private var viewModel: ContentViewModel
+
+    // Initialize the view with required parameters
+    init(authToken: String, broadcastExtensionBundleID: String) {
+        _viewModel = StateObject(wrappedValue: ContentViewModel(authToken: authToken, broadcastExtensionBundleID: broadcastExtensionBundleID))
+    }
     
     var body: some View {
         VStack {
@@ -55,7 +60,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(authToken: "YOUR_AUTH_TOKEN", broadcastExtensionBundleID: "YOUR_BROADCAST_EXTENSION_BUNDLE_ID")
     }
 
 }
