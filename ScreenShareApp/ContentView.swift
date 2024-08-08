@@ -9,40 +9,53 @@ import SwiftUI
 import HMSSDK
 
 struct ContentView: View {
-    @State var roomCode: String? = nil
-    @State var hms: HMSClient?
-
-
+    @StateObject private var viewModel = ContentViewModel()
+    
     var body: some View {
         VStack {
-            if let roomCode = roomCode {
-                Text("Room Code: \(roomCode)")
+            if viewModel.isJoined {
+                Text("Room Code: \(viewModel.roomCode)")
                     .padding()
                 
-                Button(action: joinRoom) {
-                    Text("Join Room")
+                Button(action: viewModel.startScreenSharing) {
+                    Text("Start Screen Sharing")
                         .padding()
-                        .background(Color.blue)
+                        .background(Color.green)
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
                 .padding()
+                .disabled(viewModel.isScreenSharing)
                 
+                if viewModel.isScreenSharing {
+                    Text("Screen sharing is active")
+                        .foregroundColor(.green)
+                }
+            } else {
+                Text("Waiting for room code...")
+                    .padding()
             }
-        } //: VStack
-        
-    } //: body
+        }
+        .alert(isPresented: $viewModel.showAlert) {
+            Alert(
+                title: Text(viewModel.alertTitle),
+                message: Text(viewModel.alertMessage),
+                primaryButton: .default(Text("Join")) {
+                    viewModel.joinRoom()
+                },
+                secondaryButton: .cancel()
+            )
+        }
+    }
     
-    // Join Room Logic
-    func joinRoom() {
-        // Implement the join room logic here
+    func handlePushNotification(roomCode: String, title: String, subtitle: String, body: String) {
+        viewModel.handlePushNotification(roomCode: roomCode, title: title, subtitle: subtitle, body: body)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(roomCode: "1234")
+        ContentView()
     }
 
 }
-

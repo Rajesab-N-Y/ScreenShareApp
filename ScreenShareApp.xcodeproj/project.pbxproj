@@ -13,6 +13,7 @@
 		266CF3702C63CE3E00437C63 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266CF36F2C63CE3E00437C63 /* Preview Assets.xcassets */; };
 		266CF3782C63CF8400437C63 /* HMSSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 266CF3772C63CF8400437C63 /* HMSSDK */; };
 		266CF37A2C63E30900437C63 /* HMSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266CF3792C63E30900437C63 /* HMSClient.swift */; };
+		267515602C6490AC0028EDEE /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2675155F2C6490AC0028EDEE /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		266CF36C2C63CE3E00437C63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		266CF36F2C63CE3E00437C63 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		266CF3792C63E30900437C63 /* HMSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMSClient.swift; sourceTree = "<group>"; };
+		2675155F2C6490AC0028EDEE /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				266CF3682C63CE3D00437C63 /* ScreenShareAppApp.swift */,
 				266CF36A2C63CE3D00437C63 /* ContentView.swift */,
+				2675155F2C6490AC0028EDEE /* ContentViewModel.swift */,
 				266CF3792C63E30900437C63 /* HMSClient.swift */,
 				266CF36C2C63CE3E00437C63 /* Assets.xcassets */,
 				266CF36E2C63CE3E00437C63 /* Preview Content */,
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				267515602C6490AC0028EDEE /* ContentViewModel.swift in Sources */,
 				266CF36B2C63CE3D00437C63 /* ContentView.swift in Sources */,
 				266CF3692C63CE3D00437C63 /* ScreenShareAppApp.swift in Sources */,
 				266CF37A2C63E30900437C63 /* HMSClient.swift in Sources */,
