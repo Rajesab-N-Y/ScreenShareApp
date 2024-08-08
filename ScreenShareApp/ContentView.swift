@@ -10,6 +10,8 @@ import HMSSDK
 
 struct ContentView: View {
     @State var roomCode: String? = nil
+    @State var hms: HMSClient?
+
 
     var body: some View {
         VStack {
